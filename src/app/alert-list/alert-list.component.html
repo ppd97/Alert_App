@@ -1,0 +1,24 @@
+<form  [formGroup]="AlertInfo"(ngSubmit)="onSubmit()">
+  <div class="form">
+    <p class="disp">Select Alert Types</p><br>
+  <mat-form-field appearance="fill">
+    <mat-label class="disp"> Alert Type</mat-label>
+    <mat-select formControlName="alertSelect" >
+      <mat-option class="disp" *ngFor="let item of alertTypes" [value]='item.name'>
+        {{item.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p class="disp">Select Area</p><br>
+  <mat-form-field appearance="fill">
+    <mat-label class="disp">All Areas</mat-label>
+    <mat-select formControlName="areaSelect" >
+      <mat-option class="disp" *ngFor="let data of allAreas" [value]='data'>
+        {{data}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  </div>
+  <button mat-raised-button color="primary">Submit</button>
+</form>

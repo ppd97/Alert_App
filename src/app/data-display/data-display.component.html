@@ -1,0 +1,32 @@
+ <div *ngIf="spinner">
+    <mat-spinner></mat-spinner>
+ </div>
+<div class="mat-elevation-z8" *ngIf="!spinner" >
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      
+      <ng-container matColumnDef="areaDesc" >
+        <th mat-header-cell *matHeaderCellDef> Area Description </th>
+        <ng-container *matCellDef="let element " style="width: 50%;">
+            <td mat-cell *ngIf="alertSelected===element.event"> {{element.areaDesc}} </td>
+        </ng-container>
+        <ng-template #elseBlock>No Alert Available</ng-template>
+      </ng-container>
+      <ng-container matColumnDef="affectedZones">
+        <th mat-header-cell *matHeaderCellDef>Affected Zones</th>
+        <ng-container *matCellDef="let element" >
+            <td mat-cell *ngIf="alertSelected===element.event" > {{element.affectedZones}} </td>
+        </ng-container>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="event">
+        <th mat-header-cell *matHeaderCellDef>Events</th>
+        <ng-container *matCellDef="let element">
+            <td mat-cell *ngIf="alertSelected===element.event"> {{element.event}} </td>
+        </ng-container>
+      </ng-container>
+      <!-- <ng-template #elseBlock></ng-template> -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+    </table>
+</div>
