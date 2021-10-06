@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DataDisplayService } from '../services/data-display.service';
 import { _MatTableDataSource } from '@angular/material/table';
 import { PassDataService } from '../services/pass-data.service';
+
+
 export class properties
 {
     areaDesc!: String
@@ -17,7 +19,6 @@ export interface details
 {
     features:features[]
 }
-
 @Component({
   selector: 'app-data-display',
   templateUrl: './data-display.component.html',
@@ -31,8 +32,9 @@ export class DataDisplayComponent implements OnInit {
   datas=<details>{};
   spinner=true;
   alertSelected!:string;
-  ELEMENT_DATA:Array<properties>=new Array<properties>()
-
+  notAvail!:string;
+  count:number=0;
+  ELEMENT_DATA:Array<properties>=new Array<properties>();
   //dataSource=new MatTableDataSource<details>(this.datas);
   //@Input()recieved!:String;
   displayedColumns: string[]=['areaDesc','affectedZones','event'];
@@ -54,14 +56,26 @@ export class DataDisplayComponent implements OnInit {
    
       for(let i of this.datas['features'])
       {
+       
         let getData: properties=new properties()
         
         getData= 
           {areaDesc:i.properties.areaDesc,
            affectedZones:i.properties.affectedZones, 
            event:i.properties.event}
-           this.ELEMENT_DATA.push(getData)
-          
+           if(getData.event!=this.alertSelected)
+           {
+             //console.log(this.notAvail);
+             this.count++;
+           }
+           else{
+             this.ELEMENT_DATA.push(getData)
+           }
+      }
+      if(this.count!=0)
+      {
+        this.notAvail='"Alert Not Available"';
+        alert(this.notAvail)
       }
       
       this.spinner=false;

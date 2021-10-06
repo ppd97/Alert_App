@@ -1,6 +1,6 @@
 <form  [formGroup]="AlertInfo"(ngSubmit)="onSubmit()">
   <div class="form">
-    <p class="disp">Select Alert Types</p><br>
+  <p class="disp">Select Alert Types</p><br>
   <mat-form-field appearance="fill">
     <mat-label class="disp"> Alert Type</mat-label>
     <mat-select formControlName="alertSelect" >
@@ -17,8 +17,8 @@
         {{data}}
       </mat-option>
     </mat-select>
+    
   </mat-form-field>
-
   </div>
   <button mat-raised-button color="primary">Submit</button>
 </form>
