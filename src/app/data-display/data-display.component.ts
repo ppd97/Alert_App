@@ -76,6 +76,7 @@ export class DataDisplayComponent implements OnInit {
       {
         this.notAvail='"Alert Not Available"';
         alert(this.notAvail)
+        
       }
       
       this.spinner=false;
