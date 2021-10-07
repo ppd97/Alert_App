@@ -63,7 +63,7 @@ export class DataDisplayComponent implements OnInit {
            event:i.properties.event}
            if(getData.event===this.alertSelected)
            {
-             //console.log(this.notAvail);
+             console.log(this.notAvail);
              
              this.ELEMENT_DATA.push(getData)
              this.count++;
