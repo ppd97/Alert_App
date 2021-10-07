@@ -63,16 +63,16 @@ export class DataDisplayComponent implements OnInit {
           {areaDesc:i.properties.areaDesc,
            affectedZones:i.properties.affectedZones, 
            event:i.properties.event}
-           if(getData.event!=this.alertSelected)
+           if(getData.event===this.alertSelected)
            {
              //console.log(this.notAvail);
+             
+             this.ELEMENT_DATA.push(getData)
              this.count++;
            }
-           else{
-             this.ELEMENT_DATA.push(getData)
-           }
+           
       }
-      if(this.count!=0)
+      if(this.count<=0)
       {
         this.notAvail='"Alert Not Available"';
         alert(this.notAvail)
