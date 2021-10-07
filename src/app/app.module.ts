@@ -11,11 +11,9 @@ import { AppComponent } from './app.component';
 import { WeatherServices } from './services/weather.services';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertListComponent } from './alert-list/alert-list.component';
-import { RouterModule } from '@angular/router';
 import { DataDisplayComponent } from './data-display/data-display.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
 
 @NgModule({
   declarations: [
@@ -34,11 +32,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatProgressSpinnerModule,
     MatButtonModule,
     MatTableModule,
-    RouterModule.forRoot([
-      {path:'',redirectTo:'alert-List',pathMatch:'full'},
-      {path:'alert-List',component:AlertListComponent},
-      {path:'datadisplay/:area',component:DataDisplayComponent}
-    ])
     
   ],
   providers: [
