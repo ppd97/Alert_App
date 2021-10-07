@@ -29,7 +29,6 @@ export interface details
 export class DataDisplayComponent implements OnInit {
   area!:any;
   alert!:string;
-  datas=<details>{};
   spinner=true;
   alertSelected!:string;
   notAvail!:string;
@@ -52,9 +51,8 @@ export class DataDisplayComponent implements OnInit {
       
     this.dataService.getData(this.area).subscribe((res:any)=>
     {
-      this.datas=res;
    
-      for(let i of this.datas['features'])
+      for(let i of res['features'])
       {
        
         let getData: properties=new properties()
